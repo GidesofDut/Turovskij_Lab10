@@ -1,0 +1,18 @@
+#include <iostream>
+#include <regex>
+#include <string>
+bool isValidFileName(const std::string& fileName) {
+    std::regex  pattern(R"(^[a-zA-Z0-9_\-]+\.txt$)");
+    return std::regex_match(fileName, pattern);
+}
+int main() {
+    std::string fileName;
+    std::cout<< "Enter a file name: ";
+    std::cin >> fileName;
+    if (isValidFileName(fileName)) {
+        std::cout<<"The file is valide. \n";
+    } else {
+        std::cout << "The file name is incorrect.\n";
+    }
+    return 0;
+}
